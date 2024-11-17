@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Registration from './pages/Registration';
 import Login from './pages/Login';
 import Dashboard from './components/Dashboard';
-import Users from './components/Users';
 import Products from './components/Products';
 import Profile from './components/Profile';
 
@@ -16,7 +15,6 @@ function AppFunction() {
         <Route path="/registration" element={<Registration />} />
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="profile" element={<Profile />} /> 
-          <Route path="users" element={<Users />} />
           <Route path="products" element={<Products />} />
         </Route>
       </Routes>
