@@ -23,7 +23,7 @@ const Registration = () => {
   };
 
   return (
-    <div style={{ maxWidth: '600px', margin: '0 auto', padding: '20px' }}>
+    <div style={{ marginLeft: '600px', margin: '0 auto', padding: '20px' }}>
       <h1>REGISTRATION</h1>
       <Form onSubmit={handleSubmit}>
         <Row className="mb-3">
