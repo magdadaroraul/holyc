@@ -34,7 +34,7 @@ const Login = () => {
           Login
         </Button>
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="button">
           Sign Up
         </Button>
       </Form>
