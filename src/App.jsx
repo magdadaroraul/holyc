@@ -6,6 +6,7 @@ import Dashboard from './components/Dashboard';
 import Products from './components/Products';
 import Profile from './components/Profile';
 import Logout from './pages/Logout';
+import Favorites from './components/Favorites';
 
 function AppFunction() {
   return (
@@ -18,6 +19,7 @@ function AppFunction() {
           <Route path="profile" element={<Profile />} /> 
           <Route path="products" element={<Products />} />
           <Route path="logout" element={<Logout />} />
+          <Route path="favorites" element={<Favorites />} />
         </Route>
       </Routes>
     </Router>
