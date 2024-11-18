@@ -8,6 +8,7 @@ import Profile from './components/Profile';
 import Logout from './pages/Logout';
 import Favorites from './components/Favorites';
 import Mine from './components/Mine';
+import Yellowbucket from './components/Yellowbucket';
 
 
 function AppFunction() {
@@ -23,6 +24,7 @@ function AppFunction() {
           <Route path="logout" element={<Logout />} />
           <Route path="favorites" element={<Favorites />} />
           <Route path="mine" element={<Mine />} />
+          <Route path="yellowbucket" element={<Yellowbucket />} />
         </Route>
       </Routes>
     </Router>
