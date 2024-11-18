@@ -18,13 +18,32 @@ const Registration = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Form validation
+    if (!user.firstName || !user.lastName || !user.age) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    if (user.age <= 0 || isNaN(user.age)) {
+      alert("Please enter a valid age.");
+      return;
+    }
+
     console.log('User registered:', user);
     // Call an API or handle form data here
+
+    // Reset the form after submission
+    setUser({
+      firstName: '',
+      lastName: '',
+      age: ''
+    });
   };
 
   return (
     <div style={{ maxWidth: '600px', margin: '0 auto', padding: '20px' }}>
-      <h1>REGISTRATION</h1>
+      <h1>Registration</h1>
       <Form onSubmit={handleSubmit}>
         <Row className="mb-3">
           <Form.Group as={Col} controlId="formGridFirstName">
@@ -35,6 +54,7 @@ const Registration = () => {
               name="firstName"
               value={user.firstName}
               onChange={handleInputChange}
+              required
             />
           </Form.Group>
         </Row>
@@ -48,6 +68,7 @@ const Registration = () => {
               name="lastName"
               value={user.lastName}
               onChange={handleInputChange}
+              required
             />
           </Form.Group>
         </Row>
@@ -61,6 +82,8 @@ const Registration = () => {
               name="age"
               value={user.age}
               onChange={handleInputChange}
+              required
+              min="1"  // Ensure age is a positive number
             />
           </Form.Group>
         </Row>
