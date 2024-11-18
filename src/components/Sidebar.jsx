@@ -15,6 +15,11 @@ const Sidebar = () => {
             Profile
           </Link>
         </li>
+        <li>
+          <Link to="/dashboard/logout" className="nav-link">
+            Logout
+          </Link>
+        </li>
       </ul>
     </div>
   );
