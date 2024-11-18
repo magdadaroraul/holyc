@@ -17,6 +17,11 @@ const Login = () => {
     }
   };
 
+  const handleGoToRegistration = () => {
+    navigate('/registration');  // Navigate to the registration page
+  };
+
+
   return (
     <div style={{marginLeft: '650px'}}>
       <Form onSubmit={handleLogin}>
@@ -30,8 +35,12 @@ const Login = () => {
           <Form.Control type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}  />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className='me-5'>
           Login
+        </Button>
+
+        <Button variant="primary" type="button" onClick={handleGoToRegistration}>
+          Sign Up
         </Button>
       </Form>
     </div>
