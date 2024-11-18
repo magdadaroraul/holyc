@@ -26,6 +26,11 @@ const Sidebar = () => {
           </Link>
         </li>
         <li>
+          <Link to="/dashboard/yellowbucket" className="nav-link">
+            Yellow Bucket
+          </Link>
+        </li>
+        <li>
           <Link to="/dashboard/logout" className="nav-link">
             Logout
           </Link>
