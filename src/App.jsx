@@ -9,9 +9,10 @@ import Logout from './pages/Logout';
 import Favorites from './components/Favorites';
 import Mine from './components/Mine';
 import Yellowbucket from './components/Yellowbucket';
+import Checkout from './components/Checkout';
 
 
-function AppFunction() {
+function AppFunction () {
   return (
     <Router>
       <Routes>
@@ -25,6 +26,7 @@ function AppFunction() {
           <Route path="favorites" element={<Favorites />} />
           <Route path="mine" element={<Mine />} />
           <Route path="yellowbucket" element={<Yellowbucket />} />
+          <Route path="checkout" element={<Checkout />} />
         </Route>
       </Routes>
     </Router>
