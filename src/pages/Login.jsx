@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom'; // Added 'Link' import
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import './Login.css'; // Import the CSS file
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -20,11 +21,11 @@ const Login = () => {
   };
 
   return (
-    <div style={{ marginLeft: '650px', marginTop: '50px', maxWidth: '400px'}}>
-      <h1 className="">Login</h1>
+    <div style={{marginLeft: '600px'}}className="login-container">
+      <h1 className="login-title">Login</h1>
       <Form onSubmit={handleLogin}>
-        <Form.Group className="" controlId="email">
-          <Form.Label></Form.Label>
+        <Form.Group className="login-form-group" controlId="email">
+          <Form.Label>Email</Form.Label>
           <Form.Control
             type="email"
             placeholder="Email"
@@ -34,8 +35,8 @@ const Login = () => {
           />
         </Form.Group>
 
-        <Form.Group className="" controlId="password">
-          <Form.Label></Form.Label>
+        <Form.Group className="login-form-group" controlId="password">
+          <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
             placeholder="Password"
@@ -45,11 +46,11 @@ const Login = () => {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit" className="mt-4 w-100">
+        <Button variant="primary" type="submit" className="login-button w-100 mt-3">
           Login
         </Button>
 
-        <p style={{textAlign: 'center'}} className="mt-3">
+        <p className="login-footer">
           Don't have an account? <Link to="/registration">Register</Link>
         </p>
       </Form>
