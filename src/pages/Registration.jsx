@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router-dom';
+import './Registration.css'; // Import the CSS file
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -52,10 +53,10 @@ const Register = () => {
   };
 
   return (
-    <div style={{ marginLeft: '650px', marginTop: '50px', maxWidth: '400px'}}>
-      <h1>Registration Form</h1>
+    <div style={{marginLeft: '600px'}} className="register-container">
+      <h1 className="register-title">Registration Form</h1>
       <Form onSubmit={handleSubmit}>
-        <Row className="">
+        <Row className="register-form-group">
           <Form.Group as={Col} controlId="formGridFirstName">
             <Form.Label></Form.Label>
             <Form.Control
@@ -69,7 +70,7 @@ const Register = () => {
           </Form.Group>
         </Row>
 
-        <Row className="">
+        <Row className="register-form-group">
           <Form.Group as={Col} controlId="formGridLastName">
             <Form.Label></Form.Label>
             <Form.Control
@@ -83,7 +84,7 @@ const Register = () => {
           </Form.Group>
         </Row>
 
-        <Row className="">
+        <Row className="register-form-group">
           <Form.Group as={Col} controlId="formGridEmail">
             <Form.Label></Form.Label>
             <Form.Control
@@ -97,7 +98,7 @@ const Register = () => {
           </Form.Group>
         </Row>
 
-        <Row className="">
+        <Row className="register-form-group">
           <Form.Group as={Col} controlId="formGridPassword">
             <Form.Label></Form.Label>
             <Form.Control
@@ -111,11 +112,11 @@ const Register = () => {
           </Form.Group>
         </Row>
 
-        <p style={{textAlign: 'center'}} className="mt-4">
+        <p className="register-footer">
           Already have an account? <Link to="/login">Login</Link>
         </p>
 
-        <Button variant="primary" type="submit" className="mt-2 w-100">
+        <Button variant="primary" type="submit" className="register-button w-100 mt-2">
           Register
         </Button>
       </Form>
