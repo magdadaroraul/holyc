@@ -4,46 +4,55 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
-const Registration = () => {
-  const [user, setUser] = useState({
+const Register = () => {
+  const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
-    age: ''
+    email: '',
+    password: '',
+    confirmPassword: '',
   });
 
-  const handleInputChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    setUser({ ...user, [name]: value });
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const validateForm = () => {
+    const errors = {};
+    if (!formData.firstName.trim()) errors.firstName = 'First name is required';
+    if (!formData.lastName.trim()) errors.lastName = 'Last name is required';
+    if (!formData.email.trim()) errors.email = 'Email is required';
+    if (!formData.password) errors.password = 'Password is required';
+    if (formData.password !== formData.confirmPassword) {
+      errors.confirmPassword = 'Passwords do not match';
+    }
+    return errors;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Form validation
-    if (!user.firstName || !user.lastName || !user.age) {
-      alert("Please fill in all fields.");
+    const errors = validateForm();
+    if (Object.keys(errors).length > 0) {
+      alert(Object.values(errors).join('\n'));
       return;
     }
 
-    if (user.age <= 0 || isNaN(user.age)) {
-      alert("Please enter a valid age.");
-      return;
-    }
-
-    console.log('User registered:', user);
-    // Call an API or handle form data here
+    console.log('Form data submitted:', formData);
 
     // Reset the form after submission
-    setUser({
+    setFormData({
       firstName: '',
       lastName: '',
-      age: ''
+      email: '',
+      password: '',
+      confirmPassword: '',
     });
   };
 
   return (
-    <div style={{ maxWidth: '600px', margin: '0 auto', padding: '20px' }}>
-      <h1>Registration</h1>
+    <div style={{ marginLeft: '650px', maxWidth: '1000px', margin: '0 auto', padding: '20px' }}>
+      <h1 style={{marginLeft: '30px'}}>Register</h1>
       <Form onSubmit={handleSubmit}>
         <Row className="mb-3">
           <Form.Group as={Col} controlId="formGridFirstName">
@@ -52,8 +61,8 @@ const Registration = () => {
               type="text"
               placeholder="First Name"
               name="firstName"
-              value={user.firstName}
-              onChange={handleInputChange}
+              value={formData.firstName}
+              onChange={handleChange}
               required
             />
           </Form.Group>
@@ -66,24 +75,51 @@ const Registration = () => {
               type="text"
               placeholder="Last Name"
               name="lastName"
-              value={user.lastName}
-              onChange={handleInputChange}
+              value={formData.lastName}
+              onChange={handleChange}
               required
             />
           </Form.Group>
         </Row>
 
         <Row className="mb-3">
-          <Form.Group as={Col} controlId="formGridAge">
-            <Form.Label>Age</Form.Label>
+          <Form.Group as={Col} controlId="formGridEmail">
+            <Form.Label>Email</Form.Label>
             <Form.Control
-              type="number"
-              placeholder="Age"
-              name="age"
-              value={user.age}
-              onChange={handleInputChange}
+              type="email"
+              placeholder="Email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
               required
-              min="1"  // Ensure age is a positive number
+            />
+          </Form.Group>
+        </Row>
+
+        <Row className="mb-3">
+          <Form.Group as={Col} controlId="formGridPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </Form.Group>
+        </Row>
+
+        <Row className="mb-3">
+          <Form.Group as={Col} controlId="formGridConfirmPassword">
+            <Form.Label>Confirm Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Confirm Password"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
             />
           </Form.Group>
         </Row>
@@ -96,4 +132,4 @@ const Registration = () => {
   );
 };
 
-export default Registration;
+export default Register;
