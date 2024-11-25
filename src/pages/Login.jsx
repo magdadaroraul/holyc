@@ -21,10 +21,10 @@ const Login = () => {
 
   return (
     <div style={{ marginLeft: '650px', marginTop: '50px', maxWidth: '400px'}}>
-      <h1 className="mb-4">LOGIN</h1>
+      <h1 className="">Login</h1>
       <Form onSubmit={handleLogin}>
-        <Form.Group className="mb-3" controlId="email">
-          <Form.Label>Email</Form.Label>
+        <Form.Group className="" controlId="email">
+          <Form.Label></Form.Label>
           <Form.Control
             type="email"
             placeholder="Email"
@@ -34,8 +34,8 @@ const Login = () => {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="password">
-          <Form.Label>Password</Form.Label>
+        <Form.Group className="" controlId="password">
+          <Form.Label></Form.Label>
           <Form.Control
             type="password"
             placeholder="Password"
@@ -45,11 +45,11 @@ const Login = () => {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit" className="mt-2 w-100">
+        <Button variant="primary" type="submit" className="mt-4 w-100">
           Login
         </Button>
 
-        <p className="mt-3">
+        <p style={{textAlign: 'center'}} className="mt-3">
           Don't have an account? <Link to="/registration">Register</Link>
         </p>
       </Form>
