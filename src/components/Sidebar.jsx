@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Sidebar.css';
 
 const Sidebar = () => {
   return (
-    <div className="d-flex flex-column p-3 bg-light" style={{ width: '250px', height: '100vh' }}>
-      <ul className="nav nav-pills flex-column mb-auto">
+    <div className="sidebar" style={{ width: '250px', height: '100vh' }}>
+      <h2 className="logo">Holyc</h2>
+      <ul className="nav-links">
         <li className="nav-item">
           <Link to="/dashboard/profile" className="nav-link">
             Profile
