@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Sidebar from '../components/Sidebar';
 
 const Profile = () => {
   const [profileData, setProfileData] = useState({
@@ -61,7 +62,8 @@ const Profile = () => {
   };
 
   return (
-    <div style={{ marginLeft: "10px" }}>
+    <div className="d-flex">
+      <Sidebar />
       <h2>Manage Profile</h2>
       <Form>
         <Form.Group className="mb-3" controlId="formName">

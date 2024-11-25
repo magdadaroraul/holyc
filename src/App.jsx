@@ -19,15 +19,14 @@ function AppFunction () {
         <Route path= "/" element={<Navigate to="/login"/>}/>
         <Route path="/login" element={<Login />} />
         <Route path="/registration" element={<Registration />} />
-        <Route path="/dashboard" element={<Dashboard />}>
-          <Route path="profile" element={<Profile />} /> 
-          <Route path="products" element={<Products />} />
-          <Route path="logout" element={<Logout />} />
-          <Route path="favorites" element={<Favorites />} />
-          <Route path="mine" element={<Mine />} />
-          <Route path="yellowbucket" element={<Yellowbucket />} />
-          <Route path="checkout" element={<Checkout />} />
-        </Route>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/mine" element={<Mine />} />
+        <Route path="/yellowbucket" element={<Yellowbucket />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </Router>
   );
