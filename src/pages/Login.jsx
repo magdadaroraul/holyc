@@ -1,50 +1,60 @@
+import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom'; // Added 'Link' import
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (username === 'admin' && password === 'admin') {
+
+    // Mock login logic
+    if (email === 'admin@example.com' && password === 'admin') {
       navigate('/dashboard');
     } else {
       alert('Invalid credentials');
     }
   };
 
-  const handleGoToRegistration = () => {
-    navigate('/registration');  // Navigate to the registration page
-  };
-
-
   return (
-    <div style={{marginLeft: '650px'}}>
+    <div style={{ marginLeft: '650px', marginTop: '50px', maxWidth: '400px'}}>
+      <h1 className="mb-4">LOGIN</h1>
       <Form onSubmit={handleLogin}>
-        <Form.Group className="mb-3" controlId="username">
-          <Form.Label>Username</Form.Label>
-          <Form.Control type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)} />
+        <Form.Group className="mb-3" controlId="email">
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="password">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}  />
+          <Form.Control
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
         </Form.Group>
 
-        <Button variant="primary" type="submit" className='me-5'>
+        <Button variant="primary" type="submit" className="mt-2 w-100">
           Login
         </Button>
 
-        <Button variant="primary" type="button" onClick={handleGoToRegistration}>
-          Sign Up
-        </Button>
+        <p className="mt-3">
+          Don't have an account? <Link to="/registration">Register</Link>
+        </p>
       </Form>
     </div>
   );
-}
+};
 
 export default Login;
