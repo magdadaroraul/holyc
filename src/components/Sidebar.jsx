@@ -4,7 +4,7 @@ import './Sidebar.css';
 
 const Sidebar = () => {
   return (
-    <div className="sidebar" style={{ width: '250px', height: '100vh' }}>
+    <div className="sidebar" >
       <h2 className="logo">Holyc</h2>
       <ul className="nav-links">
         <li className="nav-item">

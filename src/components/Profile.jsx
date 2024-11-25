@@ -4,7 +4,8 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Sidebar from '../components/Sidebar';
+import Sidebar from "../components/Sidebar";
+import "./Profile.css";
 
 const Profile = () => {
   const [profileData, setProfileData] = useState({
@@ -19,6 +20,8 @@ const Profile = () => {
     state: "",
   });
 
+  const [error, setError] = useState("");
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setProfileData({ ...profileData, [name]: value });
@@ -30,6 +33,7 @@ const Profile = () => {
       setProfileData(response.data);
     } catch (error) {
       console.error("Error fetching profile data:", error);
+      setError("Failed to fetch profile data. Please try again later.");
     }
   };
 
@@ -64,114 +68,121 @@ const Profile = () => {
   return (
     <div className="d-flex">
       <Sidebar />
-      <h2>Manage Profile</h2>
-      <Form>
-        <Form.Group className="mb-3" controlId="formName">
-          <Form.Label>Name</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter your name"
-            name="name"
-            value={profileData.name}
-            onChange={handleInputChange}
-          />
-        </Form.Group>
+      <div className="profile-container p-4 w-100">
+        <h2>Manage Profile</h2>
+        {error && <p className="text-danger">{error}</p>}
+        <Form>
+          <Form.Group className="mb-3" controlId="formName">
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter your name"
+              name="name"
+              value={profileData.name}
+              onChange={handleInputChange}
+            />
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formEmail">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Enter your email"
-            name="email"
-            value={profileData.email}
-            onChange={handleInputChange}
-          />
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="formEmail">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter your email"
+              name="email"
+              value={profileData.email}
+              onChange={handleInputChange}
+            />
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formPhone">
-          <Form.Label>Phone</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter your phone number"
-            name="phone"
-            value={profileData.phone}
-            onChange={handleInputChange}
-          />
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="formPhone">
+            <Form.Label>Phone</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter your phone number"
+              name="phone"
+              value={profileData.phone}
+              onChange={handleInputChange}
+            />
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formDateOfBirth">
-          <Form.Label>Date of Birth</Form.Label>
-          <Form.Control
-            type="date"
-            name="dateOfBirth"
-            value={profileData.dateOfBirth}
-            onChange={handleInputChange}
-          />
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="formDateOfBirth">
+            <Form.Label>Date of Birth</Form.Label>
+            <Form.Control
+              type="date"
+              name="dateOfBirth"
+              value={profileData.dateOfBirth}
+              onChange={handleInputChange}
+            />
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formSex">
-          <Form.Label>Sex</Form.Label>
-          <Form.Select name="sex" value={profileData.sex} onChange={handleInputChange}>
-            <option value="">Select your sex</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Other">Other</option>
-          </Form.Select>
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="formSex">
+            <Form.Label>Sex</Form.Label>
+            <Form.Select name="sex" value={profileData.sex} onChange={handleInputChange}>
+              <option value="">Select your sex</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </Form.Select>
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formPlaceOfBirth">
-          <Form.Label>Place of Birth</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter your place of birth"
-            name="placeOfBirth"
-            value={profileData.placeOfBirth}
-            onChange={handleInputChange}
-          />
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="formPlaceOfBirth">
+            <Form.Label>Place of Birth</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter your place of birth"
+              name="placeOfBirth"
+              value={profileData.placeOfBirth}
+              onChange={handleInputChange}
+            />
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formAddress">
-          <Form.Label>Address</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter your address"
-            name="address"
-            value={profileData.address}
-            onChange={handleInputChange}
-          />
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="formAddress">
+            <Form.Label>Address</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter your address"
+              name="address"
+              value={profileData.address}
+              onChange={handleInputChange}
+            />
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formCountry">
-          <Form.Label>Country</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter your country"
-            name="country"
-            value={profileData.country}
-            onChange={handleInputChange}
-          />
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="formCountry">
+            <Form.Label>Country</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter your country"
+              name="country"
+              value={profileData.country}
+              onChange={handleInputChange}
+            />
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formState">
-          <Form.Label>State/Province</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter your state or province"
-            name="state"
-            value={profileData.state}
-            onChange={handleInputChange}
-          />
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="formState">
+            <Form.Label>State/Province</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter your state or province"
+              name="state"
+              value={profileData.state}
+              onChange={handleInputChange}
+            />
+          </Form.Group>
 
-        <Row className="mb-3">
-          <Button as={Col} variant="primary" type="button" onClick={handleSave}>
-            Save
-          </Button>
-          <Button className="ms-2" as={Col} variant="secondary" type="button" onClick={handleClear}>
-            Clear
-          </Button>
-        </Row>
-      </Form>
+          <Row>
+            <Col xs={12} md={6}>
+              <Button variant="primary" type="button" onClick={handleSave} className="w-100">
+                Save
+              </Button>
+            </Col>
+            <Col xs={12} md={6}>
+              <Button variant="secondary" type="button" onClick={handleClear} className="w-100 mt-2 mt-md-0">
+                Clear
+              </Button>
+            </Col>
+          </Row>
+        </Form>
+      </div>
     </div>
   );
 };
