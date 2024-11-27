@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Sidebar from "./Sidebar";
+import './Sidebar.css'
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -37,7 +39,8 @@ const Cart = () => {
   };
 
   return (
-    <div style={{ padding: "20px", textAlign: "center" }}>
+    <div className="d-flex">
+      <Sidebar />
       <h1>Your Mine Cart</h1>
       {cartItems.length === 0 ? (
         <p>Your cart is empty!</p>
