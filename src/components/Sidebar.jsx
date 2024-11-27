@@ -13,8 +13,8 @@ const Sidebar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/products" className="nav-link">
-            Products
+          <Link to="/profile" className="nav-link">
+            Profile
           </Link>
         </li>
         <li>

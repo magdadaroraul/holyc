@@ -4,7 +4,8 @@ import Sidebar from '../components/Sidebar';
 const Dashboard = () => {
   return (
     <div className="d-flex">
-      <Sidebar />   
+      <Sidebar />
+      <h1>Dashboard</h1>
     </div>
   );
 };
