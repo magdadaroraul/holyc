@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
+import Sidebar from "../components/Sidebar";
+import '../components/Sidebar.css'
 
 const Logout = () => {
   const navigate = useNavigate();
@@ -15,7 +17,8 @@ const Logout = () => {
   };
 
   return (
-    <div style={{marginLeft: '300px'}}>
+    <div className="d-flex">
+      <Sidebar />
       <h1>Are you sure you want to log out?</h1>
       <Button style={{marginLeft: '250px'}} variant="primary" type="submit"
         onClick={handleLogout}

@@ -43,7 +43,7 @@ const Checkout = () => {
   };
 
   return (
-    <div  className="d-flex">
+    <div className="d-flex">
       <Sidebar />
       <h1>Checkout</h1>
 
