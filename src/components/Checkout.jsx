@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Sidebar from "./Sidebar";
+import './Sidebar.css'
 
 const Checkout = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -41,7 +43,8 @@ const Checkout = () => {
   };
 
   return (
-    <div style={{ padding: "20px", textAlign: "center" }}>
+    <div  className="d-flex">
+      <Sidebar />
       <h1>Checkout</h1>
 
       {cartItems.length === 0 ? (
