@@ -8,8 +8,13 @@ const Sidebar = () => {
       <h2 className="logo">Holyc</h2>
       <ul className="nav-links">
         <li className="nav-item">
-          <Link to="/profile" className="nav-link">
-            Profile
+          <Link to="/dashboard" className="nav-link">
+            Dashboard
+          </Link>
+        </li>
+        <li>
+          <Link to="/products" className="nav-link">
+            Products
           </Link>
         </li>
         <li>
