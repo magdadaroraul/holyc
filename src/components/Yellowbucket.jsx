@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Sidebar from "./Sidebar";
+import './Sidebar.css'
 
 const YellowBasket = () => {
   const [basketItems, setBasketItems] = useState([]);
@@ -37,7 +39,8 @@ const YellowBasket = () => {
   };
 
   return (
-    <div style={{ padding: "20px", textAlign: "center"}}>
+    <div className="d-flex">
+      <Sidebar />
       <h1>Your Yellow Bucket</h1>
       {basketItems.length === 0 ? (
         <p>Your bucket is empty!</p>
