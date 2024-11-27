@@ -4,6 +4,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Sidebar from "./Sidebar";
+import './Products.css'
 
 const ProductForm = () => {
   const [product, setProduct] = useState({
@@ -94,7 +96,8 @@ const ProductForm = () => {
 
 
   return (
-    <div style={{ marginLeft: '10px' }}>
+    <div className="d-flex">
+      <Sidebar />
       <h2>{editMode ? "Edit Product" : "Add Product"}</h2>
       <Form>
         <Form.Group className="mb-3" controlId="formProductCode">
