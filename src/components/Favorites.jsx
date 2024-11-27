@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Sidebar from "./Sidebar";
+import './Sidebar.css'
 
 const Favorites = () => {
   const [favorites, setFavorites] = useState([]);
@@ -17,7 +19,8 @@ const Favorites = () => {
   };
 
   return (
-    <div style={{ padding: "20px", textAlign: "center" }}>
+    <div className="d-flex">
+      <Sidebar />
       <h1>Your Favorites</h1>
       {favorites.length === 0 ? (
         <p>No favorites added yet.</p>
