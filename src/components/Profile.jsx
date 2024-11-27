@@ -68,7 +68,6 @@ const Profile = () => {
   return (
     <div className="d-flex">
       <Sidebar />
-      <div className="profile-container p-4 w-100">
         <h2>Manage Profile</h2>
         {error && <p className="text-danger">{error}</p>}
         <Form>
@@ -182,7 +181,6 @@ const Profile = () => {
             </Col>
           </Row>
         </Form>
-      </div>
     </div>
   );
 };
