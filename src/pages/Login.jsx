@@ -13,7 +13,7 @@ const Login = () => {
     e.preventDefault();
 
     // Mock login logic
-    if (email === 'admin@example.com' && password === 'admin') {
+    if (email === 'admin@gmail.com' && password === 'admin') {
       navigate('/dashboard');
     } else {
       alert('Invalid credentials');
